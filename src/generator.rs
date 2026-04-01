@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 // generator.rs - random task generator for stress testing
 // uses a simple LCG so we dont need any external crates
+// irrelevant to the codebase just creates csv
 
 use crate::task::{Task, MAX_TASKS};
 
@@ -89,29 +90,3 @@ pub fn generate_tasks(
     return num;
 }
 
-// write generated tasks to a csv file
-pub fn write_csv(tasks: &[Task; MAX_TASKS], count: usize, path: &str) {
-    let mut out = String::new();
-    out.push_str("id,name,priority,arrival,deadline,duration\n");
-
-    let mut i = 0;
-    while i < count {
-        let t = &tasks[i];
-        let line = format!(
-            "{},{},{},{},{},{}\n",
-            t.id,
-            t.get_name(),
-            t.priority,
-            t.arrival,
-            t.deadline,
-            t.duration,
-        );
-        out.push_str(&line);
-        i = i + 1;
-    }
-
-    match std::fs::write(path, &out) {
-        Ok(_) => println!("wrote {} tasks to {}", count, path),
-        Err(e) => println!("error writing {}: {}", path, e),
-    }
-}

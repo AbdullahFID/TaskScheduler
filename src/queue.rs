@@ -55,13 +55,6 @@ impl Queue {
         return self.count == 0;
     }
 
-    pub fn is_full(&self) -> bool {
-        return self.count >= QUEUE_CAP;
-    }
-
-    pub fn size(&self) -> usize {
-        return self.count;
-    }
 }
 
 // O(1) btw

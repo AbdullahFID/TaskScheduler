@@ -63,10 +63,6 @@ impl Heap {
         return self.count == 0;
     }
 
-    pub fn size(&self) -> usize {
-        return self.count;
-    }
-
     // insert a new entry into the heap
     pub fn insert(&mut self, entry: HeapEntry) -> i32 {
         if self.count >= HEAP_CAP {

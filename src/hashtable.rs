@@ -126,32 +126,4 @@ impl HashTable {
 
         return -1; // not found
     }
-
-    // delete a task by id
-    pub fn delete(&mut self, id: i32) -> i32 {
-        let bucket = hash_id(id);
-        let mut prev: i32 = -1;
-        let mut cur = self.buckets[bucket];
-
-        while cur >= 0 {
-            let idx = cur as usize;
-            if self.pool[idx].used == 1 && self.pool[idx].task.id == id {
-                // unlink from chain
-                if prev < 0 {
-                    // its the head of the bucket
-                    self.buckets[bucket] = self.pool[idx].next;
-                } else {
-                    self.pool[prev as usize].next = self.pool[idx].next;
-                }
-                // mark as free
-                self.pool[idx].used = 0;
-                self.pool[idx].next = -1;
-                return 0;
-            }
-            prev = cur;
-            cur = self.pool[idx].next;
-        }
-
-        return -1; // not found
-    }
 }
