@@ -1,0 +1,11 @@
+id,name,priority,arrival,deadline,duration
+1,pick_up_box,3,0,30,5
+2,scan_shelf,1,2,120,15
+3,charge_battery,4,3,10,8
+4,deliver_package,3,5,45,10
+5,emergency_stop,4,8,5,1
+6,sort_items,2,15,60,12
+7,inspect_area,2,20,80,7
+8,move_pallet,3,25,40,9
+9,update_inventory,1,30,100,6
+10,clean_zone,1,40,90,10

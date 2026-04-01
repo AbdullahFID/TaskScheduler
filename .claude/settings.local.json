@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/abdullahaviator13/Desktop/mac-slap-website/**)",
+      "Bash(npx vercel:*)",
+      "Bash(node -e \"const l = require\\(''lucide-react''\\); console.log\\(Object.keys\\(l\\).filter\\(k => k.toLowerCase\\(\\).includes\\(''code''\\) || k.toLowerCase\\(\\).includes\\(''file-code''\\)\\)\\)\")",
+      "Bash(pnpm build:*)",
+      "WebFetch(domain:macslap.app)"
+    ]
+  }
+}
